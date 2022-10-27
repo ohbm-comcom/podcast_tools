@@ -1,5 +1,5 @@
-# Podcastm Tools
-Tools used in Neuroscaliance podcast production.
+# Podcast Tools
+Tools used in Neurosalience podcast production.
 
 ## Dependencies
 | Software                      | Tested version|
