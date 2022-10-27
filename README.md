@@ -2,8 +2,6 @@
 Tools used in Neuroscaliance podcast production.
 
 ## Dependencies
-### File format support overview
-
 | Software                      | Tested version|
 | ------------------------------|---------------|
 | [ffmpeg](https://ffmpeg.org/) | 4.3.2         |
