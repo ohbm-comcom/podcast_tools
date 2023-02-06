@@ -9,22 +9,23 @@ from scipy.ndimage import zoom
 import cv2
 
 # Absolute path to a wav file
-FILE = "/home/faruk/Documents/temp_podcast_S3E7/Neurosalience-S3E7_intro.wav"
-OUTDIR = "/home/faruk/Documents/temp_podcast_S3E7/frames"
+FILE = "/path/to/guest.wav"
+OUTDIR = "/path/to/frames"
 
-DURATION = 147  # seconds
+DURATION = 120  # seconds
 FPS = 25
 BINS = 100
 
-ROWS_2D = 600
-COLS_2D = 800
+ROWS_2D = 300
+COLS_2D = 400
 
 # =============================================================================
 # Read file
 fs, data = wavfile.read(FILE)
 
 # Get the first channel
-data = data.T[0]
+if len(data.shape) > 1:
+    data = data.T[0]
 
 # Normalize to -1 to +1 range
 data = data // (2**16) * 2 - 1
@@ -65,7 +66,7 @@ for f in range(FPS * DURATION):
     arr3[ROWS_2D//2:, :] = arr2
 
     # Save as jpeg
-    outpath = os.path.join(OUTDIR, "frame-{}.jpeg".format(str(f).zfill(5)))
+    outpath = os.path.join(OUTDIR, "frame-{}.jpeg".format(str(f).zfill(6)))
     cv2.imwrite(outpath, arr3)
 
 print("Finished.")
