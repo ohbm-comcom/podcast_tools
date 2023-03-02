@@ -7,8 +7,8 @@ OUTPUT="/home/faruk/podcast/episode4_ready_to_edit.mov"
 
 # =============================================================================
 # STAGE 1: Rescale
-ffmpeg -i ${HOST} -vf scale=960:540 "${HOST%.mov}_step-01.mov"
-ffmpeg -i ${GUEST} -vf scale=960:540 "${GUEST%.mov}_step-01.mov"
+ffmpeg -i ${HOST} -max_muxing_queue_size 1024 -vf scale=960:540 "${HOST%.mov}_step-01.mov"
+ffmpeg -i ${GUEST} -max_muxing_queue_size 1024 -vf scale=960:540 "${GUEST%.mov}_step-01.mov"
 
 # =============================================================================
 # STAGE 2: Add black bars
